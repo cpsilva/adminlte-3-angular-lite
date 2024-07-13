@@ -17,8 +17,7 @@ envList.forEach(en => {
 
   const envFile = `export const environment = {
     NODE_ENV: ${getVariable('NODE_ENV')},
-    GA_ID: ${getVariable('GA_ID')},
-    FIREBASE_CONFIG: ${process.env.FIREBASE_CONFIG || null},
+    BASE_URL:${getVariable('BASE_URL')},
   };
 `;
 

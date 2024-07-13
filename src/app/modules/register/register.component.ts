@@ -19,8 +19,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     public registerForm: UntypedFormGroup;
     public isAuthLoading = false;
-    public isGoogleLoading = false;
-    public isFacebookLoading = false;
 
     constructor(
         private renderer: Renderer2,
@@ -51,12 +49,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
         } else {
             this.toastr.error('Form is not valid!');
         }
-    }
-
-    async registerByGoogle() {
-        this.isGoogleLoading = true;
-        await this.appService.signInByGoogle();
-        this.isGoogleLoading = false;
     }
 
     ngOnDestroy() {

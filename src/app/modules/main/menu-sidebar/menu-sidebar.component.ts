@@ -1,10 +1,9 @@
-import {AppState} from '@/store/state';
-import {UiState} from '@/store/ui/state';
-import {Component, HostBinding, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {AppService} from '@services/app.service';
-import {User} from 'firebase/auth';
-import {Observable} from 'rxjs';
+import { AppState } from '@/store/state';
+import { UiState } from '@/store/ui/state';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppService } from '@services/app.service';
+import { Observable } from 'rxjs';
 
 const BASE_CLASSES = 'main-sidebar elevation-4';
 @Component({
@@ -15,13 +14,13 @@ const BASE_CLASSES = 'main-sidebar elevation-4';
 export class MenuSidebarComponent implements OnInit {
     @HostBinding('class') classes: string = BASE_CLASSES;
     public ui: Observable<UiState>;
-    public user?: User;
+    public user?: any;
     public menu = MENU;
 
     constructor(
         public appService: AppService,
         private store: Store<AppState>
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.ui = this.store.select('ui');
@@ -39,11 +38,6 @@ export const MENU = [
         path: ['/']
     },
     {
-        name: 'Blank',
-        iconClasses: 'fas fa-file',
-        path: ['/blank']
-    },
-    {
         name: 'Main Menu',
         iconClasses: 'fas fa-folder',
         children: [
@@ -51,11 +45,6 @@ export const MENU = [
                 name: 'Sub Menu',
                 iconClasses: 'far fa-address-book',
                 path: ['/sub-menu-1']
-            },
-            {
-                name: 'Blank',
-                iconClasses: 'fas fa-file',
-                path: ['/sub-menu-2']
             }
         ]
     }

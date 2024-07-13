@@ -10,7 +10,6 @@ import {AuthGuard} from '@guards/auth.guard';
 import {NonAuthGuard} from '@guards/non-auth.guard';
 import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.component';
 import {RecoverPasswordComponent} from '@modules/recover-password/recover-password.component';
-import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
 
 const routes: Routes = [
     {
@@ -24,15 +23,11 @@ const routes: Routes = [
                 component: ProfileComponent
             },
             {
-                path: 'blank',
+                path: 'about',
                 component: BlankComponent
             },
             {
                 path: 'sub-menu-1',
-                component: SubMenuComponent
-            },
-            {
-                path: 'sub-menu-2',
                 component: BlankComponent
             },
             {
